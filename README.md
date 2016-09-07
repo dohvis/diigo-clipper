@@ -1,4 +1,5 @@
 # SNSPocket-Client
+**페북 저장기능이 이거 만들기 시작할때보다 좋아져서 그만둠**
 
 <img src="http://res.cloudinary.com/ner0/image/upload/v1473238272/save_i4nvpq.jpg">
 
