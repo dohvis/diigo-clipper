@@ -10,7 +10,8 @@
     "128": "icons/icon128.png"
   },
   "permissions": [
-    "http://*/"
+    "http://*/",
+    "storage"
   ],
   "default_locale": "en",
   "background": {
@@ -18,6 +19,9 @@
       "src/bg/background.js"
     ],
     "persistent": true
+  },
+  "browser_action": {
+    "default_title": "SNS Pocket"
   },
   "content_scripts": [
     {
@@ -34,6 +38,8 @@
       ],
       "js": [
         "js/jquery/jquery.min.js",
+        "js/bower_components/localStorageDB/localstoragedb.min.js",
+        "src/inject/db.js",
         "src/inject/inject.js"
       ]
     }

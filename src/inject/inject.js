@@ -27,39 +27,48 @@ function injectSaveButton() {
     });
 }
 
+function parseInfo($target) {
+  var $contentElem = $target.parentsUntil(".userContentWrapper").last().prev();
+  var $author = $contentElem.find("._6a ._5u5j .fwb a");
+  var authorName = $author.text();
+  var authorUrl = $author.attr("href").split("?")[0];
+  var originUrl = $contentElem.find("a._5pcq").first().attr('href');
+  var $pList = $contentElem.first().find(".userContent p");
+  var content = "";
+  $pList.each(function () {
+      content += $(this).text() + "\n";
+      // TODO: a태그랑 p태그 구분해서 저장하게
+  });
+  var isUrl = new RegExp("^http");
+  if (!isUrl.test(originUrl))
+      originUrl = "https://facebook.com" + originUrl;
+
+  result = {
+      "url": originUrl,
+      "content": content,
+      "author_name": authorName,
+      "author_url": authorUrl
+  };
+  return result;
+}
 
 function save(event) {
     var $target = $(event.target);
-    var $contentElem = $target.parentsUntil(".userContentWrapper").last().prev();
-    var $author = $contentElem.find("._6a ._5u5j .fwb a");
-    var authorName = $author.text();
-    var authorUrl = $author.attr("href").split("?")[0];
-
-
-    var originUrl = $contentElem.find("a._5pcq").first().attr('href');
-    var $pList = $contentElem.first().find(".userContent p");
-    var content = "";
-    $pList.each(function () {
-        content += $(this).text() + "\n";
-        // TODO: a태그랑 p태그 구분해서 저장하게
-    });
-    var isUrl = new RegExp("^http");
-    if (!isUrl.test(originUrl))
-        originUrl = "https://facebook.com" + originUrl;
-    var data = {
-        "url": originUrl,
-        "content": content,
-        "author_name": authorName,
-        "author_url": authorUrl
-    };
-    var url = "http://localhost:8000/save";
+    var data = parseInfo($target);
+    insert(data);
+    console.log("success")
+    /*var url = "http://localhost:8000/save";
     console.log(data);
     $.post(url, data,
         function (data) {
             console.log(data);
         },
         "json"
-    );
+    );*/
+
+    // check exists
+
+    // Insert info
 }
 
 chrome.extension.sendMessage({}, function (response) {
