@@ -56,7 +56,7 @@ function save(event) {
     var $target = $(event.target);
     var data = parseInfo($target);
     insert(data);
-    console.log("success")
+    alert("저장됨");
     /*var url = "http://localhost:8000/save";
     console.log(data);
     $.post(url, data,
