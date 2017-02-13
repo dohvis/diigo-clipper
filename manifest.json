@@ -1,5 +1,5 @@
 {
-  "name": "Social Pocket",
+  "name": "Diigo-clipper",
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "Save Social content(Facebook, Twitter)",
@@ -37,8 +37,7 @@
         "https://www.facebook.com/*"
       ],
       "js": [
-        "js/jquery/jquery.min.js",
-        "js/bower_components/localStorageDB/localstoragedb.min.js",
+        "js/node_modules/jquery/dist/jquery.min.js",
         "src/inject/db.js",
         "src/inject/inject.js"
       ]

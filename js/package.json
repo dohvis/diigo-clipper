@@ -1,0 +1,23 @@
+{
+  "name": "diigo-clipper",
+  "version": "1.0.0",
+  "description": "Clipper for my diigo",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerogit/diigo-clipper.git"
+  },
+  "author": "nerogit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nerogit/diigo-clipper/issues"
+  },
+  "homepage": "https://github.com/nerogit/diigo-clipper#readme"
+}
